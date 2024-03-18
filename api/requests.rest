@@ -1,0 +1,82 @@
+GET http://localhost:8000/
+
+###
+
+POST http://localhost:8000/signup
+Content-Type: application/json
+
+{
+    "username": "Tim@gmail.com",
+    "password": "secret",
+    "todos": [{"text": "wake up", "completed": false}, {"text": "feed dog", "completed": false}, {"text": "eat lunch", "completed": false}]
+}
+
+###
+
+POST http://localhost:8000/login
+Content-Type: application/json
+
+{
+    "username": "Thomas@gmail.com",
+    "password": "Pascode"
+}
+
+###
+
+GET http://localhost:8000/login/data
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGhvbWFzIiwiYWRtaW4iOmZhbHNlfQ.gAFM7lhS7X0-TeLF9L6-Y48rbKWrjMtadq06Z-phYKc
+
+###
+
+DELETE http://localhost:8000/delete
+
+###
+
+PUT http://localhost:8000/todo/complete
+Content-Type: application/json
+
+{
+    "username": "Jack",
+    "todo": "make lunch"
+}
+
+###
+
+PUT http://localhost:8000/todo/reset
+Content-Type: application/json
+
+{
+    "username": "Jack",
+    "todo": "watch TV"
+}
+
+###
+
+PUT http://localhost:8000/todo/add
+Content-Type: application/json
+
+{
+    "username": "Jack",
+    "todo": "This is a task that exceeds 140 characters. It contains a lot of unnecessary information and is meant to test the character limit for tasks. This should be rejected by the server due to its length."
+}
+
+###
+
+DELETE http://localhost:8000/todo/delete
+Content-Type: application/json
+
+{
+    "username": "Thomas",
+    "todo": "study"
+}
+
+###
+
+PUT http://localhost:8000/todo/edit
+Content-Type: application/json
+
+{
+    "username": "Thomas",
+    "todo": "watch TV",
+    "newTodo": "sleep"
+}
